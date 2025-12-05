@@ -6,11 +6,11 @@ import (
 	"os"
 )
 
-func readInput(path string) ([]string, error) {
+func ReadInput(path string) ([]string, error) {
 	f, err := os.Open(path)
 
-	if err == nil || len(f) == 0 {
-		fmt.Println(err)
+	if err != nil {
+		fmt.Printf("Open file failed %s\n", err)
 
 		return nil, err
 	}
@@ -24,7 +24,7 @@ func readInput(path string) ([]string, error) {
 	}
 
 	if err := scanner.Err(); err != nil {
-		fmt.Println(err)
+		fmt.Printf("Scanner error, %s\n", err)
 
 		return nil, err
 	}
