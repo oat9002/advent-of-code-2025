@@ -40,7 +40,6 @@ func ReadInput(path string) ([]string, error) {
 }
 
 func ReadInputFromWeb(path string) ([]string, error) {
-	// TO DO
 	response, err := http.Get(path)
 
 	if err != nil {
