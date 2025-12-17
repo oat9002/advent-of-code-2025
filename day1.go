@@ -55,7 +55,7 @@ func Day1_2() {
 		newPostion, n := rotate2(rotationDirection, position, steps)
 		position = newPostion
 		numOfPassesAtZero += n
-		fmt.Printf("New Position: %d, passing 0: %d\n\n", newPostion, numOfPassesAtZero)
+		fmt.Printf("New Position: %d, passing zero: %d times\n\n", newPostion, n)
 
 	}
 
@@ -99,14 +99,22 @@ func rotate2(direction string, currentPosition int, steps int) (int, int) {
 	}
 
 	for {
+		isPassingZero := false
+
 		if newPostion < 0 {
 			newPostion = 100 + newPostion
-			numOfPassesAtZero++
-
+			isPassingZero = true
 		} else if newPostion > 99 {
 			newPostion = newPostion - 100
-			numOfPassesAtZero++
+			isPassingZero = true
+		}
 
+		if newPostion == 0 {
+			isPassingZero = true
+		}
+
+		if isPassingZero {
+			numOfPassesAtZero++
 		}
 
 		if newPostion >= 0 && newPostion <= 99 {
