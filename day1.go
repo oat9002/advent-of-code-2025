@@ -99,22 +99,11 @@ func rotate2(direction string, currentPosition int, steps int) (int, int) {
 	}
 
 	for {
-		isPassingZero := false
 
 		if newPostion < 0 {
 			newPostion = 100 + newPostion
-			isPassingZero = true
 		} else if newPostion > 99 {
 			newPostion = newPostion - 100
-			isPassingZero = true
-		}
-
-		if newPostion == 0 {
-			isPassingZero = true
-		}
-
-		if isPassingZero {
-			numOfPassesAtZero++
 		}
 
 		if newPostion >= 0 && newPostion <= 99 {
